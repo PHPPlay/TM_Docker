@@ -1,3 +1,7 @@
+# inside this folder:
+#   build using: docker build -t tm-qa .
+#   run using: docker run -P tm-qa
+
 FROM node
 
 RUN     ls
