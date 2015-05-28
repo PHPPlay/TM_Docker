@@ -15,6 +15,9 @@ RUN     git submodule update
 
 WORKDIR TM_4_0_Design
 RUN     npm install
+RUN 	mkdir .tmCache
+RUN     git clone https://github.com/TMContent/Lib_Docs-json.git ./.tmCache/Lib_Docs-json
+
 
 WORKDIR ../TM_4_0_GraphDB
 RUN     npm install
