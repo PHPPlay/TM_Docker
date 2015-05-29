@@ -1,11 +1,10 @@
 FROM node
 
-RUN     ls
-ADD     ./docker_key /root/.ssh/id_rsa
+WORKDIR root
+RUN     ls -la
+ADD     docker_key /root/.ssh/id_rsa
 RUN     echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 RUN     ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-WORKDIR $HOME
 
 RUN     git clone https://github.com/TeamMentor/TM_4_0_Design.git
 WORKDIR TM_4_0_Design
