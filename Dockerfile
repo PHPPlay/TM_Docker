@@ -26,4 +26,7 @@ WORKDIR ..
 EXPOSE 1332
 EXPOSE 1337
 
-CMD ["bin/start-servers.sh"]
+ADD    ./start-servers.sh ./start-servers.sh
+RUN    ls
+
+CMD ["start-servers.sh"]
