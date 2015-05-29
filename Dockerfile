@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR $HOME
+WORKDIR /root
 RUN     ls
 ADD     ./docker_key /root/.ssh/id_rsa
 RUN     echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
