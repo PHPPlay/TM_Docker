@@ -27,6 +27,7 @@ EXPOSE 1332
 EXPOSE 1337
 
 ADD    ./start-servers.sh ./start-servers.sh
+RUN    chmod +x ./start-servers.sh
 RUN    ls
 
 CMD ["./start-servers.sh"]
