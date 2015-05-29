@@ -8,4 +8,6 @@ RUN     npm install
 RUN 	mkdir .tmCache
 RUN     git clone https://github.com/TMContent/Lib_Docs-json.git ./.tmCache/Lib_Docs-json
 
+EXPOSE 1337
+
 CMD ["npm", "start"]
