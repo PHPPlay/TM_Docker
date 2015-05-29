@@ -15,4 +15,4 @@ RUN     git clone git@github.com:TMContent/Lib_UNO-json.git ./.tmCache/Lib_UNO-j
 
 EXPOSE 1332
 
-CMD ["npm", "run dev"]
+CMD ["npm", "start"]
