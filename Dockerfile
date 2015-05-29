@@ -29,4 +29,4 @@ EXPOSE 1337
 ADD    ./start-servers.sh ./start-servers.sh
 RUN    ls
 
-CMD ["start-servers.sh"]
+CMD ["./start-servers.sh"]
