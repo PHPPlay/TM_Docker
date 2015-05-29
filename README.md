@@ -38,3 +38,7 @@ docker run -p 49160:8080 -d tm-build/python-web
 docker ps
 curl localhost:49160
 ``` 
+- ssh into container (get name from ```docker ps``` )
+```
+docker exec -it serene_lovelace bash
+```
