@@ -27,7 +27,14 @@ git checkout python-web
 ```
 - build
 ```
+docker build -t tm-build/python-web .
 ```
 - run
 ```
+docker run -p 49160:8080 -d tm-build/python-web
 ```
+- confirm it is running (also at ```http://46.101.49.51:49160/```)
+```
+docker ps
+curl localhost:49160
+``` 
