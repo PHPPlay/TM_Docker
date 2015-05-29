@@ -2,7 +2,7 @@ FROM node
 
 WORKDIR root
 RUN     ls -la
-ADD      ../docker_key /root/.ssh/id_rsa
+ADD     docker_key /root/.ssh/id_rsa
 RUN     echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 RUN     ssh-keyscan github.com >> ~/.ssh/known_hosts
 
