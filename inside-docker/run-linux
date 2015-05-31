@@ -1,4 +1,4 @@
-#!/usr/bin
+#!/bin/bash
 
 echo "Starting a new docker instance of Ubuntu"
 docker run -it ubuntu
