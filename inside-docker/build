@@ -17,4 +17,4 @@ git checkout $1
 cp ~/docker_key .
 
 # Build container
-docker build -t tm-build/$1 .
+docker build -t $1 .

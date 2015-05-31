@@ -3,10 +3,11 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
-id=$(docker run -P -d tm-build/$1)
+id=$(docker run -P -d $1)
 
 docker ps | grep ${id:0:12} 
 
 port=$(docker ps | grep ${id:0:12} | docker inspect $id | grep HostPort | cut -d \" -f 4;)
 ip=$(wget -qO- http://ipecho.net/plain ; echo)
 echo "$1 is running on http://$ip:$port"
+
