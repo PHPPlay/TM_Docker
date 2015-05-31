@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+  echo "You must provide the name of the image to build"
+  exit 1
+fi
+
+# Create temp dir
+dir=`mktemp -d -t docker-build-XXXX` && cd $dir
+
+# Clone TM_Docker and checkout branch with target build
+git clone git@github.com:TeamMentor/TM_Docker.git
+cd TM_Docker
+git checkout $1
+
+# Copy key (required to be added into docker container)
+cp ~/docker_key .
+
+# Build container
+docker build -t tm-build/$1 .
