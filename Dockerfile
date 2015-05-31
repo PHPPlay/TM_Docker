@@ -20,7 +20,7 @@ RUN     git clone https://github.com/TMContent/Lib_UNO-json.git ./.tmCache/Lib_U
 
 WORKDIR ..
 
-EXPOSE 1332
 EXPOSE 1337
+EXPOSE 1332
 
 CMD ["bin/start-servers.sh"]
