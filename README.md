@@ -3,8 +3,25 @@ Docker scripts to build TM Images using docker
 
 Some scripts need the rsa_id file to be included in the root of docker file
 
+### Running full TM on DigitalOcean inside docker
 
-### Setup
+Here are the scripts to run
+
+- clone this repo: ```git clone git@github.com:TeamMentor/TM_Docker.git```
+- go into setup folder:``` cd TM_Docker/setup```
+- create docker vm at DigitalOcean: ```./new_Docker.coffee``` 
+- find the ip address of the docker vm: ```do-cli list``` (in my case is 46.101.49.51)
+- ssh into vm using ip provided (accept the RSA key finger print): ```./ssh_host.sh 46.101.49.51```
+- set up docker using: ```./set-up-docker-server.sh 46.101.49.51```
+- check that python-web server was setup ok: ```curl 46.101.49.51:49160```
+- create a clean tm-design using: ```./start-container.sh 46.101.49.51 tm-design```
+ - when it is finished tm-design will be at the port of the new tm-design container: ```curl 46.101.49.51:32768```
+ - open in browser: http:// 46.101.49.51:32768
+- create a clean tm-graph using: ```./start-container.sh 46.101.49.51 tm-graph``` 
+- create a clean tm-qa using: ```./start-container.sh 46.101.49.51 tm-qa``` 
+
+
+### Running a particular Docker image (from branch)
 
 - create an Docker VM in DigitalOcean, AWS or Google Clould
 - ssh into VM
