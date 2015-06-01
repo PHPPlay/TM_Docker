@@ -9,11 +9,11 @@ if [[ -z $2 ]]; then
   exit 1
 fi
 
-echo "starting container $2 script at $1"
+echo "starting container tm-qa-branch script at $1 with design branch $2 and graph branch $3"
 ssh root@$1 <<< "cd ~
                  cd TM_Docker
                  git checkout master
                  git pull origin master
                  cd inside-docker
-                 ./run-branch tm-qa-branch $3 $4
+                 ./run-branch tm-qa-branch $2 $3
                  "
