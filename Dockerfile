@@ -25,7 +25,7 @@ RUN     git clone git@github.com:TMContent/Lib_UNO-json.git ./.tmCache/Lib_UNO-j
 WORKDIR ..
 
 EXPOSE 1337
-EXPOSE 1332
+#EXPOSE 1332
 
 ADD    ./start-servers.sh ./start-servers.sh
 RUN    chmod +x ./start-servers.sh
