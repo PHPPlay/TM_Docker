@@ -1,5 +1,6 @@
 require 'fluentnode'
-express = require 'express'
+express    = require 'express'
+bodyParser = require 'body-parser'
 
 class Docker_Web_Hooks
   constructor: ->
@@ -9,11 +10,21 @@ class Docker_Web_Hooks
 
   add_Routes: =>
     @.app.get '/*',(req,res)->
-      log req.url
+      log "GET #{req.url}"
       log req.headers
       log req.params
       log req.query
-      res.send('42')
+      res.send('42') 
+    @.app.post '/*',(req,res)->
+      log '-----------------------'
+      log "POST #{req.url}"
+      log req.headers
+      #log req.params
+      #log req.query
+      #log req.body
+      branch = req.body.branches.first().name
+      "Received require for branch: #{branch}".log()	
+      res.send {status: 'ok' , branch: branch}
     @
 
   start: =>
@@ -22,6 +33,7 @@ class Docker_Web_Hooks
     @
 
   setup: =>
+    @.app.use(bodyParser.json({limit:'128kb'}));  
     @.add_Routes()
     @
 
