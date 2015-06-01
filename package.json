@@ -1,0 +1,28 @@
+{
+  "name": "express-web-hook",
+  "version": "0.0.1",
+  "description": "Simple express site that listens to GitHub webhook",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node ./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive -R list test",
+    "test-watch": "node ./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive -R list -w --extensions 'coffee' test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TeamMentor/TM_Docker.git"
+  },
+  "author": "Dinis Cruz <dinis.cruz@owasp.org> (http://blog.diniscruz.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeamMentor/TM_Docker/issues"
+  },
+  "homepage": "https://github.com/TeamMentor/TM_Docker",
+  "dependencies": {
+    "coffee-script": "^1.9.3",
+    "express": "^4.12.4",
+    "fluentnode": "^0.4.0",
+    "mocha": "^2.2.5",
+    "supertest": "^1.0.1"
+  }
+}
