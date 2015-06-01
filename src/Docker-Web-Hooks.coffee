@@ -22,8 +22,16 @@ class Docker_Web_Hooks
       #log req.params
       #log req.query
       #log req.body
-      branch = req.body.branches.first().name
+      branch = req.body.ref.remove 'refs/heads/'
       "Received require for branch: #{branch}".log()	
+     
+      args = ['exec', "#{branch}-master", 'bash', '-c' ,"cd TM_4_0_Design && git pull origin #{branch}"]
+
+      child_process = require('child_process')
+      childProcess = child_process.spawn('docker',args)
+      childProcess.stdout.on 'data', (data)->console.log(data.str().trim())
+      childProcess.stderr.on 'data', (data)->console.log(data.str().trim())
+ 
       res.send {status: 'ok' , branch: branch}
     @
 
