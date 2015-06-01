@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "This will checkout the following branches"
+echo "   TM_4_0_Design: $design"
+echo "   TM_4_0_Graph: $graph"
+
+cd TM_4_0_Design
+
+git checkout $design
+git pull origin $design:$design
+
+cd ..
+
+cd TM_4_0_GraphDB
+git checkout $graph
+git pull origin $graph:$graph
+
+cd ..
+./start-servers.sh
