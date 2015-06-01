@@ -42,9 +42,10 @@ configuration =
 
 create_Droplet configuration, (id)->
   wait_For_Active id, (ip)->
-    "Droplet with id #{id} and ip #{ip} is now ready               \n\n
-      - to confirm ssh connectivity run: ./ssh_host.sh #{ip}         \n
-      - to setup the server run: ./set-up-docker-server.sh #{ip}     \n
-      - to build and run a container use: ./start-container.sh #{ip} \n
-      - to run a container use: ./run-container.sh #{ip}             \n
+    "Droplet with id #{id} and ip #{ip} is now ready                                        \n\n
+      - to confirm ssh connectivity run: ./ssh_host.sh #{ip}                                  \n
+      - to setup the server run: ./set-up-docker-server.sh #{ip}                              \n
+      - to build and run a container use: ./start-container.sh #{ip}                          \n
+      - to run a container use: ./run-container.sh #{ip}                                      \n
+      - to start tm-qa use: ./run-container.sh #{ip} tm-qa [{design-branch}] [{graph-branch}] \n
     ".log()
