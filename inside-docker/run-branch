@@ -3,7 +3,7 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
-cid=$(docker run -e design=$2  -e graph=$3 -P -d $1 )
+cid=$(docker run -e design=$2  -e graph=$3 -name "$2-$3" -P -d $1 )
 
 docker ps | grep ${cid:0:12} 
 
