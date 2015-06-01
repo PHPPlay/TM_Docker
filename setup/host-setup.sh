@@ -1,4 +1,7 @@
 #!/bin/bash
+
+cd
+
 echo "------ configuring docker host -------"
 cp docker_key ~/.ssh/id_rsa
 echo "    IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
@@ -6,21 +9,20 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 git clone git@github.com:TeamMentor/TM_Docker.git
 
+ls
+
 cd TM_Docker
-git branch -a
-git checkout python-web
+cd inside-docker
 
-echo "------: Building Container"
+ls
 
-docker build -t tm-build/python-web .
+echo "------: Building tm-design Container"
 
-echo "------: Starting Container"
+./build tm-design
 
-docker run -p 49160:8080 -d tm-build/python-web
+echo "------: Run tm-design"
 
-echo "------: Running Containers"
-
-docker ps
+./run tm-design
 
 echo "------: Server IP Addresses"
 

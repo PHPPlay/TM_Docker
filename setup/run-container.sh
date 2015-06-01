@@ -13,6 +13,5 @@ echo "starting container $2 script at $1"
 ssh root@$1 <<< "cd ~
                  cd TM_Docker
                  cd inside-docker
-                 ./build $2
                  ./run $2
                  "
