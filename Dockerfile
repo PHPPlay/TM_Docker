@@ -1,8 +1,8 @@
 FROM ubuntu
 
-RUN 	  echo '**** Install tools: curl, vim, git and bats ****'
+RUN 	  echo '**** Install tools: curl, vim, git and bats, g++, make and python ****'
 RUN   	apt-get update
-RUN   	apt-get install -y curl vim git
+RUN   	apt-get install -y curl vim git build-essential g++ make python
 
 WORKDIR /root
 RUN     git clone https://github.com/sstephenson/bats.git \
