@@ -2,12 +2,12 @@ FROM tm-node
 
 WORKDIR root
 
-RUN     git clone https://github.com/TeamMentor/TM_4_0_Design.git
-WORKDIR TM_4_0_Design
+RUN     git clone https://github.com/TeamMentor/TM_Docker.git
+WORKDIR TM_Docker
+RUN     git checkout _express-web-hooks
 RUN     npm install
-RUN     mkdir .tmCache
-RUN     git clone https://github.com/TMContent/Lib_Docs-json.git ./.tmCache/Lib_Docs-json
+RUN     ls 
 
-EXPOSE 1337
+EXPOSE  22222
 
 CMD ["npm","start"]
