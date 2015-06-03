@@ -1,0 +1,2 @@
+cid=$(docker run -P -d tm-qa)
+docker logs -f $cid
