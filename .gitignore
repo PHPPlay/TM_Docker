@@ -1,3 +1,5 @@
 keys
 node_modules
 npm-debug.log
+docker_key
+.idea
