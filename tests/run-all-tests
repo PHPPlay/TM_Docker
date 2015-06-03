@@ -1,3 +1,4 @@
 cd tests
 bats check-install.bats
+bats check-github.bats
 cd ..
