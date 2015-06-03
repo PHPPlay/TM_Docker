@@ -1,2 +1,3 @@
 cp ~/.ssh/tm-build-key docker_key
 docker build -t tm-node .
+rm docker_key
