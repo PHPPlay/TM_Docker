@@ -5,7 +5,7 @@ RUN   	apt-get update
 RUN   	apt-get install -y curl vim git
 
 WORKDIR /root
-RUN 	git clone https://github.com/sstephenson/bats.git \
+RUN     git clone https://github.com/sstephenson/bats.git \
      && cd bats                                           \
      && ./install.sh /usr/local	                          \
      &&	cd ..		                                  \
@@ -31,12 +31,19 @@ RUN     curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-lin
      && npm cache clear
 
 
-RUN 	  echo '**** set key ****'
+
+RUN 	  echo '**** set key got github access****'
 
 ADD     docker_key /root/.ssh/id_rsa
 RUN     chmod 600 /root/.ssh/id_rsa
 RUN     echo "IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 RUN     ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+RUN     echo 'bash environment setup'
+
+ADD     extra_bashrc extra_bashrc
+RUN     cat extra_bashrc >> .bashrc 	\
+		&&  rm extra_bashrc
 
 RUN 	  echo '**** run tests ****'
 
