@@ -1,0 +1,3 @@
+cd tests
+bats check-install.bats
+cd ..
