@@ -1,0 +1,13 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "hashicorp/precise64"
+
+  config.vm.network :private_network, ip: "2.2.2.2"
+  config.ssh.forward_agent = true
+  config.vm.provision :shell, :path => "bootstrap.sh"
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+	vb.destroy_unused_network_interfaces = true
+  end 
+end

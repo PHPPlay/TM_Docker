@@ -1,0 +1,2 @@
+cp ~/.ssh/tm-build-key /keys/docker_key
+vagrant up
