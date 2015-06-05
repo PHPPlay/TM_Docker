@@ -1,2 +1,6 @@
-cp ~/.ssh/tm-build-key /keys/docker_key
+mkdir ./keys
+cp ~/.ssh/tm-build-key ./keys/docker_key
+vagrant destroy
 vagrant up
+vagrant ssh < ./tm-setup.sh
+vagrant ssh
