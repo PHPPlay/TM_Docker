@@ -1,0 +1,4 @@
+./run-branch tm-qa-branch Dev master &
+./run-branch tm-qa-branch Flare master &
+./run-branch tm-qa-branch 721_Customer_View master &
+./run-branch tm-qa-branch Hotfix master &
