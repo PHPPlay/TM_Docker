@@ -3,9 +3,11 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
-cid=$(docker run -e design=$2  -e graph=$3 -name "$2-$3" -P -d $1 )
+docker rm branch-$1
 
-docker ps | grep ${cid:0:12} 
+cid=$(docker run -e branch=$1 --name "branch-$1" -P -d tm-tm-branch )
+
+docker ps | grep ${cid:0:12}
 
 port=$(docker ps | grep ${cid:0:12} | docker inspect $cid | grep HostPort | cut -d \" -f 4;)
 ip=$(wget -qO- http://ipecho.net/plain)
@@ -13,7 +15,7 @@ echo ---------------------------------
 echo  - new $1 container started with id: ${cid:0:12}
 echo  - running on http://$ip:$port
 echo  - showing logs below, you can safely use Ctrl+C to stop viewing them
-echo  - use 'docker ps' to view a list of running containers  
+echo  - use 'docker ps' to view a list of running containers
 echo ---------------------------------
 
 docker logs -f $cid
