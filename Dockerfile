@@ -32,7 +32,7 @@ RUN     curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-lin
 
 
 
-RUN 	  echo '**** set key got github access****'
+RUN     echo '**** set key got github access****'
 
 ADD     docker_key /root/.ssh/id_rsa
 RUN     chmod 600 /root/.ssh/id_rsa
@@ -42,10 +42,10 @@ RUN     ssh-keyscan github.com >> ~/.ssh/known_hosts
 RUN     echo 'bash environment setup'
 
 ADD     extra_bashrc extra_bashrc
-RUN     cat extra_bashrc >> .bashrc 	\
-		&&  rm extra_bashrc
+RUN     cat extra_bashrc >> /root/bashrc ;\
+        rm extra_bashrc
 
 RUN 	  echo '**** run tests ****'
 
-COPY    ./tests ./tests
+COPY    ./tests /root/tests
 RUN     ./tests/run-all-tests
