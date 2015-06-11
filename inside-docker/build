@@ -9,7 +9,7 @@ fi
 dir=`mktemp -d -t docker-build-XXXX` && cd $dir
 
 echo '---------------tm-docker-build-----------------------'
-echo 'using tmp folder: $dir'
+echo using tmp folder: $dir
 echo '-----------------------------------------------------'
 
 # Clone TM_Docker and checkout branch with target build
