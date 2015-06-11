@@ -14,7 +14,17 @@ cd TM_Docker
 git checkout $1
 
 # Copy key (required to be added into docker container)
-cp ~/docker_key .
+
+if [[ -f ~/.ssh/docker_key ]]; then
+  echo 'using ~/.ssh/docker_key'
+  cp ~/.ssh/docker_key .
+elif [[ -f ~/.ssh/id_rsa ]]; then
+  echo "using ~/.ssh.id_rsa which is YOUR main SSH key (make sure you are ok with this)"
+  cp ~/.ssh/id_rsa ./docker_key
+else
+  echo "Error: Could not find an ssh key to use."
+  exit 1
+fi
 
 # Build container
 docker build -t $1 .
