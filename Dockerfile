@@ -1,4 +1,4 @@
-FROM    tm-qa
+FROM    tm-tm
 
 ADD     ./checkout-branches ./checkout-branches
 RUN     chmod +x checkout-branches

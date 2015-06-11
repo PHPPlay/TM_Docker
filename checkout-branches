@@ -1,19 +1,36 @@
 #!/bin/bash
 
-echo "This will checkout the following branches"
-echo "   TM_4_0_Design: $design"
-echo "   TM_4_0_Graph: $graph"
+echo ------------------------------------------------------------------------
+echo "This will checkout '$branch' in all repos"
+echo ------------------------------------------------------------------------
 
-cd TM_4_0_Design
+baseDir=$(pwd)
 
-git checkout $design
-git pull origin $design:$design
+echo ------------------------------------------------------------------------
+echo ... fetching and updating submodules of TM
+echo ------------------------------------------------------------------------
 
-cd ..
+git fetch origin
+git submodule update
 
-cd TM_4_0_GraphDB
-git checkout $graph
-git pull origin $graph:$graph
 
-cd ..
-./start-servers.sh
+function checkout {
+  echo ------------------------------------------------------------------------
+  echo "... checking out $branch inside $1"
+  echo ------------------------------------------------------------------------
+  cd  $1
+  git checkout $branch
+  git pull origin $branch:$branch
+  cd $baseDir
+}
+
+checkout .
+checkout code/TM_Flare
+checkout code/TM_GraphDB
+checkout code/TM_Jade
+checkout code/TM_Shared
+checkout code/TM_Static
+checkout code/TM_Website
+
+
+./bin/start-servers.sh

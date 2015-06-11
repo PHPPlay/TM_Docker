@@ -1,3 +1,4 @@
-cid=$(docker run -P -d -e design=$1 -e graph=$2 --name=$1_$2 tm-qa-branch)
+docker rm branch-$1
+cid=$(docker run -P -d -e branch=$1 --name=branch-$1 tm-tm-branch)
 echo "start docked container with CID: $cid"
 docker logs -f $cid
