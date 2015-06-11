@@ -41,8 +41,8 @@ RUN     ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 RUN     echo 'bash environment setup'
 
-ADD     extra_bashrc extra_bashrc
-RUN     cat extra_bashrc >> /root/bashrc ;\
+ADD     ./extra_bashrc /root/extra_bashrc
+RUN     cat extra_bashrc >> .bashrc        ;\
         rm extra_bashrc
 
 RUN 	  echo '**** run tests ****'
