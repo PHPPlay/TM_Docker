@@ -1,1 +1,1 @@
-docker build -t tm-qa .
+docker build -t tm-tm .
