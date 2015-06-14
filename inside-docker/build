@@ -2,6 +2,7 @@
 
 if [[ -z $1 ]]; then
   echo "You must provide the name of the image to build"
+  echo "Syntax: ./build {TM_Docker branch to build} [{extra options for docker build command}]"
   exit 1
 fi
 
@@ -31,4 +32,4 @@ else
 fi
 
 # Build container
-docker build -t $1 .
+docker build $2 -t $1 .
