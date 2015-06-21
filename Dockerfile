@@ -12,5 +12,5 @@ WORKDIR /root
 ADD     ./start-tm-and-cloud9 ./start-tm-and-cloud9 
 ADD     ./start-only-cloud9 ./start-only-cloud9 
 
-CMD [ "./start-tm-and-cloud9" ]
-#CMD [ "./start-cloud9" ]
+#CMD [ "./start-tm-and-cloud9" ]
+CMD [ "./start-only-cloud9" ]
