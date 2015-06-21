@@ -1,2 +1,2 @@
-cid=$(docker run -P -d tm-tm)
+cid=$(docker run -P -d tm-cloud9)
 docker logs -f $cid

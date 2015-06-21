@@ -1,6 +1,6 @@
-FROM tm-node
+FROM cloud9
 
-WORKDIR root
+WORKDIR /root/workspace
 
 RUN     git clone https://github.com/TeamMentor/TM.git
 WORKDIR TM
