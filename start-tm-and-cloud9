@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo -e '\n****** Starting TM and Cloud9 ******* \n'
+
+cd /cloud9                                                              # starting cloud9
+node server.js -p 8181 -l 0.0.0.0 -a : -w /root/workspace/TM  &         # on the folder we cloned TM
+
+cd /root/workspace/TM                                                   # go into TM folder
+#./bin/start-servers.sh
