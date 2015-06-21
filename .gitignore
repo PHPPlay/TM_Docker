@@ -4,3 +4,6 @@ npm-debug.log
 docker_key
 .idea
 vagrant/.vagrant
+.c9
+workspace
+
