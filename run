@@ -1,2 +1,2 @@
-cid=$(docker run -P -d cloud9 $1 )
+cid=$(docker run -P -d -v $(pwd)/workspace:/workspace cloud9 $1 )
 docker logs -f $cid

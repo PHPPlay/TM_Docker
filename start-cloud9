@@ -3,8 +3,6 @@
 echo '---- starting cloud 9 ----'
 
 cd /cloud9
-ls
-
 node server.js -p 8181 -l 0.0.0.0 -a : -w /workspace
 
 
