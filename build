@@ -1,1 +1,1 @@
-docker build -t tm-tm .
+docker build -t cloud9 .
