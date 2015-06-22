@@ -33,4 +33,4 @@ checkout code/TM_Static
 checkout code/TM_Website
 
 
-./bin/start-servers.sh
+./bin/start-servers
