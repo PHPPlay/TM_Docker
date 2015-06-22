@@ -31,6 +31,7 @@ checkout code/TM_Jade
 checkout code/TM_Shared
 checkout code/TM_Static
 checkout code/TM_Website
+checkout config/SiteData_TM
 
 
 ./bin/start-servers
