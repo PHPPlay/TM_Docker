@@ -9,4 +9,4 @@ RUN     bin/npm_install.sh
 EXPOSE 12345
 #EXPOSE 1332
 
-CMD ["./bin/start-servers.sh"]
+CMD ["./bin/start-servers"]
