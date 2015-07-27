@@ -4,10 +4,10 @@ WORKDIR root
 
 RUN     git clone https://github.com/TeamMentor/TM.git
 WORKDIR TM
-RUN     bin/npm_install.sh
+
 RUN     git checkout Dev
-RUN     bin/git_checkout_branch.sh Dev
-RUN     git submodule sync ; git submodule init; git submodule update
+RUN     git submodule init; git submodule update
+RUN     bin/npm_install.sh
 
 EXPOSE 12345
 #EXPOSE 1332
