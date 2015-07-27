@@ -5,6 +5,7 @@ WORKDIR root
 RUN     git clone https://github.com/TeamMentor/TM.git
 WORKDIR TM
 RUN     bin/npm_install.sh
+RUN     git checkout Dev
 RUN     bin/git_checkout_branch.sh Dev
 
 EXPOSE 12345
